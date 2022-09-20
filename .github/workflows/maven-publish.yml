@@ -42,9 +42,6 @@ jobs:
       uses: actions/upload-artifact@v1
       with: 
         name: artifact
-        path: ./target/Java-project.jar
-        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-        heroku_app_name: ${{secrets.HEROKU_APP_NAME}} #Must be unique in Heroku
-        heroku_email: ${{secrets.HEROKU_EMAIL}}
+        path: ./target//Java-project-0.1.jar
 
       
