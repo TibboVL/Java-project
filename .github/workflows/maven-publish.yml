@@ -30,10 +30,16 @@ jobs:
         
     - name: Build and package project
       run: mvn -f pom.xml clean package
+    
+    - name: Show contenst of the current working directory
+      run: ls -la
+      
+    - name: Show contents of target directory
+      run: ls -la target
 
     - name: Upload Maven build artifact
       uses: actions/upload-artifact@v1
       with: 
         name: artifact
-        path: .
+        path: ./target/Java-project.jar
       
