@@ -49,6 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: release
     steps:
+      - run: heroku git:remote -a java-supermarket
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
