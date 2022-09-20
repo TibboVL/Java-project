@@ -14,9 +14,9 @@ jobs:
     name: run unit tests on java
     
     steps:
-      - uses: action/checkout@master
+      - uses: actions/checkout@master
       - name: Setup java
-        uses: action/setup-java@1
+        uses: actions/setup-java@1
         with:
           java-version: 17
       - run: mvn -f pom.xml test
