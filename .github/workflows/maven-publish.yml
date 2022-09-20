@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        java: [17]
+        java: [8]
     steps:
       - uses: actions/checkout@master
       - name: Setup java
@@ -26,7 +26,7 @@ jobs:
     - name: Set up JDK 17
       uses: actions/setup-java@v1
       with:
-        java-version: 17
+        java-version: 8
         
     - name: Build and package project
       run: mvn -f pom.xml clean package
