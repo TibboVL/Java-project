@@ -1,0 +1,31 @@
+<!--Tibbo Van Leemput-->
+<!--r0879836-->
+<!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>New Supermarket | Java-project</title>
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+    <main>
+        <form action="/CreateSupermarket">
+
+            <p><label for="name">Name supermarket</label></p>
+            <p><input type="text" name="name" id="name"></p>
+
+            <p>
+                <select id="manager" name="manager" size="1">
+                    <option value="-1">Choose a general manager</option>
+                    <option th:each="Staff : ${staffList}" th:value="${StaffStat.index}"
+                            th:text="${Staff.getFirstName()} + ' ' + ${Staff.getSurName()}"></option>
+                </select>
+            </p>
+
+            <p><input type="submit" name="submit" value="Config supermarket"></p>
+        </form>
+
+        <p><a href="/">Back to home page</a></p></main>
+    </body>
+</html>

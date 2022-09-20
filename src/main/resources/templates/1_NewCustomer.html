@@ -1,0 +1,41 @@
+<!--Tibbo Van Leemput-->
+<!--r0879836-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>New Customer | Java-project</title>
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+    <main>
+        <form action="/CreateCustomer">
+
+            <p><label for="FirstName">First name</label></p>
+            <p><input type="text" name="FirstName" id="FirstName"></p>
+
+
+            <p><label for="Surname">Surname</label></p>
+            <p><input type="text" name="Surname" id="Surname"></p>
+
+            <p><label for="YearOfBirth">Year of birth</label></p>
+            <p><input type="text" name="YearOfBirth" id="YearOfBirth"></p>
+
+
+            <p th:each="Supermarket : ${SupermarketList}">
+                <input type="radio" name="supermarketIndex"
+                       th:checked="${SupermarketStat.index} == 0"
+                       th:value="${SupermarketStat.index}"
+                       th:id="${SupermarketStat.index}">
+                <label
+                        th:for="${SupermarketStat.index}"
+                        th:text="${Supermarket.getName()}">
+                </label>
+            </p>
+
+            <p><input type="submit" name="submit" value="Continue and generate cardnumber"></p>
+        </form>
+
+        <p><a href="/">Back to home page</a></p></main>
+    </body>
+</html>

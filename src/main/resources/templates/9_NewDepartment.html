@@ -1,0 +1,51 @@
+<!--Tibbo Van Leemput-->
+<!--r0879836-->
+<!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>New Department | Java-project</title>
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+    <main>
+        <h1>New department</h1>
+        <hr>
+        <form action="/CreateDepartment">
+
+            <p><label for="department">Name department:</label></p>
+            <p><input type="text" name="department" id="department"></p>
+
+            <p><label for="photo">Photo:</label></p>
+            <p><input type="text" name="photo" id="photo"></p>
+
+            <p>
+                <label for="refrigerated">Refrigerated:</label>
+                <input type="checkbox" name="refrigerated" value="yes" id="refrigerated">
+            </p>
+
+            <p>
+                <select id="supermarket" name="supermarket" size="1">
+                    <option value="-1">In which supermarket?</option>
+                    <option th:each="Supermarket : ${supermarketList}" th:value="${SupermarketStat.index}"
+                            th:text="${Supermarket.getName()}"></option>
+                </select>
+            </p>
+
+            <p>
+                <select id="responsible" name="responsible" size="1">
+                    <option value="-1">Who is responsible for this department</option>
+                    <option th:each="Staff : ${staffList}" th:value="${StaffStat.index}"
+                            th:text="${Staff.getFirstName()} + ' ' + ${Staff.getSurName()}"></option>
+                </select>
+            </p>
+
+            <p><input type="submit" name="submit" value="Confirm department"></p>
+
+            <p><a href="/">Back to home page</a></p>
+
+        </form>
+    </main>
+    </body>
+</html>

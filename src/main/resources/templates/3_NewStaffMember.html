@@ -1,0 +1,32 @@
+<!--Tibbo Van Leemput-->
+<!--r0879836-->
+<!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>New Staff | Java-project</title>
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+    <main>
+        <form action="/CreateStaffMember">
+
+            <p><label for="FirstName">First name</label></p>
+            <p><input type="text" name="FirstName" id="FirstName"></p>
+
+            <p><label for="Surname">Surname</label></p>
+            <p><input type="text" name="Surname" id="Surname"></p>
+
+            <p><label for="EmployedSince">Employed since (dd/mm/yyyy)</label></p>
+            <p><input type="text" name="EmployedSince" id="EmployedSince"></p>
+
+            <p>
+                <input type="checkbox" name="WorkingStudent" value="Working" id="WorkingStudent">
+                <label for="WorkingStudent">Working student?</label>
+            </p>
+            <p><input type="submit" name="submit" value="Confirm staff member"></p>
+        </form>
+        <p><a href="/">Back to home page</a></p></main>
+    </body>
+</html>

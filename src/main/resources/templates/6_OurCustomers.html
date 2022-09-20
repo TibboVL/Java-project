@@ -1,0 +1,33 @@
+<!--Tibbo Van Leemput-->
+<!--r0879836-->
+<!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Customers | Java-project</title>
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+    <main>
+        <h1>Our Customers:</h1>
+        <hr>
+        <ol>
+            <li th:each="customer : ${customerList}">
+                <span th:text="${customer.getFirstName()} + ' ' + ${customer.getSurName()}"></span>
+                <ul>
+                    <li th:text="'year of birth: ' + ${customer.getYearOfBirth()}"></li>
+                    <li th:text="'cardnumber: : ' + ${customer.getCardNumber()}"></li>
+                    <li>shopping list:
+                        <ul th:each="products : ${customer.getShoppingList()}">
+                            <li th:text="${products.toString()}">butter</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <p><a href="/">Back to home page</a></p>
+    </main>
+    </body>
+</html>

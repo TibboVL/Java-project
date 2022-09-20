@@ -1,0 +1,22 @@
+<!--Tibbo Van Leemput-->
+<!--r0879836-->
+<!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Staff | Java project</title>
+        <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+
+    </head>
+    <body>
+    <main>
+        <h1>Our staff:</h1>
+        <hr>
+        <ul>
+            <li th:each="staff : ${staffList}" th:text="${staff.toString()}"></li>
+        </ul>
+
+        <p><a href="/">Back to home page</a></p>
+    </main>
+    </body>
+</html>

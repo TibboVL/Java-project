@@ -1,0 +1,39 @@
+<!--Tibbo Van Leemput-->
+<!--r0879836-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Supermarket project</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <main>
+    <h1>My project</h1>
+
+    <hr>
+
+    <nav>
+        <ul>
+            <li><a href="/newCustomer">New customer</a></li>
+            <li><a href="/newStaffMember">New staff member</a></li>
+            <li><a href="/OurStaff">Our staff</a></li>
+            <li><a href="/OurCustomers">Our Customers</a></li>
+            <li><a href="/newSupermarket">New Supermarket</a></li>
+            <li><a href="/ourSupermarkets">Our Supermarkets</a></li>
+            <li><a href="/newDepartment">New department</a></li>
+        </ul>
+    </nav>
+
+    <form action="/Search">
+        <p><label for="searchfor">Search for a department:</label></p>
+        <p><input type="text" name="searchfor" id="searchfor"></p>
+
+        <p><input type="submit" name="submit" value="Search"></p>
+
+    </form>
+    </main>
+
+</body>
+</html>
