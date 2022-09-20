@@ -50,6 +50,7 @@ jobs:
     needs: release
     steps:
       - run: heroku git:remote -a java-supermarket
+      - run: git push heroku main:refs/heads/main
       - uses: actions/checkout@v2
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
