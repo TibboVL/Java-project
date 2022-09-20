@@ -1,47 +1,39 @@
-# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
-# For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
-
-name: Maven Package
+name: Test, Upload artifact and Deploy to Heroku
 
 on: push
 
 jobs:
   test:
+    name: run unit tests on java ${{ matrix.java }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
         java: [17]
-    name: run unit tests on java
-    
     steps:
       - uses: actions/checkout@master
       - name: Setup java
         uses: actions/setup-java@v1
         with:
-          java-version: 17
-      - run: mvn -f pom.xml test
+          java-version: ${{ matrix.java }}
+      - run: mvn -f pom.xml clean test
       
-  build:
-
+  release:
+    name: Build, Package and upload .jar artifact
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-
+    needs: test
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v1
     - name: Set up JDK 17
       uses: actions/setup-java@v1
       with:
-        java-version: '17'
-        distribution: 'temurin'
-        server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-        settings-path: ${{ github.workspace }} # location for the settings.xml file
+        java-version: 17
+        
+    - name: Build and package project
+      run: mvn -f pom.xml clean package
 
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
-
-    - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy -s $GITHUB_WORKSPACE/settings.xml
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
+    - name: Upload Maven build artifact
+      uses: action/upload-artifact@v1
+      with: 
+        name: artifact
+        path: ./target/java-supermarket 
+      
