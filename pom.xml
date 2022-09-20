@@ -38,7 +38,7 @@
                   <uniqueVersion>false</uniqueVersion>
                   <id>corp1</id>
                   <name>Corporate Repository</name>
-                  <url>https://github.com/TibboVL/test</url>
+                  <url>https://git.heroku.com/java-supermarket.git</url>
                   <layout>default</layout>
          </repository>
     
