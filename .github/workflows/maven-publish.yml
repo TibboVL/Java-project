@@ -42,6 +42,6 @@ jobs:
       uses: actions/upload-artifact@v1
       with: 
         name: artifact
-        path: ./target//Java-project-0.1.jar
+        path: ./target/Java-project-0.1.jar
 
       
