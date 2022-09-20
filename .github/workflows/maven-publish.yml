@@ -32,7 +32,7 @@ jobs:
       run: mvn -f pom.xml clean package
 
     - name: Upload Maven build artifact
-      uses: action/upload-artifact@v1
+      uses: actions/upload-artifact@v1
       with: 
         name: artifact
         path: ./target/java-supermarket 
